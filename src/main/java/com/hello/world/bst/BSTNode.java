@@ -19,4 +19,24 @@ public class BSTNode<T extends BasicDataType> {
     public BSTNode(T data) {
         this.data = data;
     }
+
+    public T getData() {
+        return data;
+    }
+
+    public BSTNode getLeft() {
+        return left;
+    }
+
+    public BSTNode getRight() {
+        return right;
+    }
+
+    public BSTNode getParent() {
+        return parent;
+    }
+
+    public boolean isColor() {
+        return color;
+    }
 }

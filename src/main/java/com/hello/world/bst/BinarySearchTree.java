@@ -1,6 +1,7 @@
 package com.hello.world.bst;
 
-import com.sun.source.tree.BinaryTree;
+import java.math.BigInteger;
+import java.util.UUID;
 
 /**
  * A BinarySearchTree interface
@@ -17,6 +18,11 @@ public interface BinarySearchTree<T extends BasicDataType> extends BinaryTree {
      */
     BSTNode searchNode(T key);
 
+
+    BSTNode searchNode(BigInteger weight);
+
+
+    BSTNode searchNode(UUID uuid);
     /**
      * Inserts a node with the given key.
      *

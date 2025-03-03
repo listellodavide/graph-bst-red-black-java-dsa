@@ -5,7 +5,7 @@ package com.hello.world.bst;
  *
  * @author <a href="davide.listello@gmail.com">Davide Listello</a>
  */
-public interface BinaryTree {
+public interface BinaryTree<T> {
 
     /**
      * Returns the binary tree's root node.
