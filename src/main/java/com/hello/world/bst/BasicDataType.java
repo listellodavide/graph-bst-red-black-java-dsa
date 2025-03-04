@@ -1,7 +1,7 @@
 package com.hello.world.bst;
 
-import java.math.BigInteger;
 import java.util.UUID;
+import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * A BasicDataType used for comparison between nodes
@@ -13,9 +13,10 @@ public sealed class BasicDataType implements Comparable<BasicDataType>
 
     private UUID uuid;
 
-    private BigInteger weight = BigInteger.ZERO;
+    private Integer weight = 0;
 
-    private static final AtomicBigInteger abi = new AtomicBigInteger(BigInteger.ZERO);
+    // private static final AtomicBigInteger abi = new AtomicBigInteger(BigInteger.ZERO);
+    private static final AtomicInteger counter = new AtomicInteger(0);
 
     private static boolean UUID_MODE = false;
 
@@ -25,19 +26,22 @@ public sealed class BasicDataType implements Comparable<BasicDataType>
 
     public BasicDataType(UUID uuid) {
         this.uuid = uuid;
+        this.weight = 0;
     }
 
     public BasicDataType(int weight) {
-        this.weight = BigInteger.valueOf(weight);
+        this.uuid = UUID.randomUUID();
+        this.weight = weight;
     }
 
-    public BasicDataType(BigInteger weight) {
+    public BasicDataType(Integer weight) {
+        this.uuid = UUID.randomUUID();
         this.weight = weight;
     }
 
     public BasicDataType() {
         this.uuid = UUID.randomUUID();
-        this.weight = abi.getAndIncrement();
+        this.weight = counter.incrementAndGet();
     }
 
     /**
@@ -65,7 +69,7 @@ public sealed class BasicDataType implements Comparable<BasicDataType>
         return this.weight.compareTo(other.weight) > 0;
     }
 
-    public boolean isBigger(BigInteger value) {
+    public boolean isBigger(Integer value) {
         return this.weight.compareTo(value) > 0;
     }
 
@@ -80,7 +84,7 @@ public sealed class BasicDataType implements Comparable<BasicDataType>
         return this.weight.compareTo(other.weight) < 0;
     }
 
-    public boolean isSmaller(BigInteger value) {
+    public boolean isSmaller(Integer value) {
         return this.weight.compareTo(value) < 0;
     }
 
@@ -92,7 +96,7 @@ public sealed class BasicDataType implements Comparable<BasicDataType>
         return uuid;
     }
 
-    public BigInteger getWeight() {
+    public Integer getWeight() {
         return weight;
     }
 }

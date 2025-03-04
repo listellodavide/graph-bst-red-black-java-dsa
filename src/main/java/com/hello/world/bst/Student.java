@@ -1,6 +1,5 @@
 package com.hello.world.bst;
 
-import java.math.BigInteger;
 import java.util.Objects;
 import java.util.UUID;
 
@@ -32,17 +31,12 @@ public final class Student extends BasicDataType {
         this.age = age;
     }
 
-    public Student(BigInteger weight, String name, String surname, int age) {
-        super(weight);
-        this.name = name;
-        this.surname = surname;
-        this.age = age;
-    }
-
     @Override
     public String toString() {
         return "Student{" +
-                "name='" + name + '\'' +
+                "uuid= " + super.getUuid() +
+                ", weight= " + super.getWeight() +
+                ", name='" + name + '\'' +
                 ", surname='" + surname + '\'' +
                 ", age=" + age +
                 '}';

@@ -29,7 +29,7 @@ public class RedBlackTree<T extends BasicDataType> extends BaseBinaryTree implem
     }
 
     @Override
-    public BSTNode searchNode(BigInteger weight) {
+    public BSTNode searchNode(Integer weight) {
         BSTNode node = root;
         while (node != null) {
             if (weight == node.data.getWeight()) {

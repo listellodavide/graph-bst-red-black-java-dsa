@@ -16,10 +16,10 @@ public final class BinarySearchTreeValidator {
      * @return whether the given binary tree is a binary search tree
      */
     public static boolean isBstWithoutDuplicates(BinaryTree tree) {
-        return isBstWithoutDuplicates(tree.getRoot(), BigInteger.valueOf(Integer.MIN_VALUE), BigInteger.valueOf(Integer.MAX_VALUE));
+        return isBstWithoutDuplicates(tree.getRoot(), Integer.MIN_VALUE, Integer.MAX_VALUE);
     }
 
-    private static boolean isBstWithoutDuplicates(BSTNode node, BigInteger minAllowedKey, BigInteger maxAllowedKey) {
+    private static boolean isBstWithoutDuplicates(BSTNode node, Integer minAllowedKey, Integer maxAllowedKey) {
         if (node == null) {
             return true;
         }
@@ -29,8 +29,8 @@ public final class BinarySearchTreeValidator {
             return false;
         }
 
-        return isBstWithoutDuplicates(node.getLeft(), minAllowedKey, node.getData().getWeight().subtract(BigInteger.ONE))
-                && isBstWithoutDuplicates(node.getRight(), node.getData().getWeight().add(BigInteger.ONE), maxAllowedKey);
+        return isBstWithoutDuplicates(node.getLeft(), minAllowedKey, node.getData().getWeight()-1)
+                && isBstWithoutDuplicates(node.getRight(), node.getData().getWeight()+1, maxAllowedKey);
     }
 
     /**
@@ -40,10 +40,10 @@ public final class BinarySearchTreeValidator {
      * @return whether the given binary tree is a binary search tree
      */
     public static boolean isBstWithDuplicates(BinaryTree tree) {
-        return isBstWithDuplicates(tree.getRoot(), BigInteger.valueOf(Integer.MIN_VALUE), BigInteger.valueOf(Integer.MAX_VALUE));
+        return isBstWithDuplicates(tree.getRoot(), Integer.MIN_VALUE, Integer.MAX_VALUE);
     }
 
-    private static boolean isBstWithDuplicates(BSTNode node, BigInteger minAllowedKey, BigInteger maxAllowedKey) {
+    private static boolean isBstWithDuplicates(BSTNode node, Integer minAllowedKey, Integer maxAllowedKey) {
         if (node == null) {
             return true;
         }

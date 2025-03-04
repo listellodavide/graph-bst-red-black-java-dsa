@@ -61,8 +61,7 @@ public class RandomString {
 
     public static String generateRandomStringEasy() {
         String easy = RandomString.digits + "ACEFGHJKLMNPQRUVWXYabcdefhijkprstuvwx";
-        RandomString tickets = new RandomString(23, new SecureRandom(), easy);
-        return tickets.toString();
+        return new RandomString(23, new SecureRandom(), easy).nextString();
     }
 
 }

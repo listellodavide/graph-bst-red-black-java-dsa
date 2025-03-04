@@ -9,12 +9,12 @@ public class DogTest {
 
     @BeforeAll
     public static void init() {
-        System.out.println("Doing stuff");
+        System.out.println("Akira is doing stuff");
     }
     @Test
     public void testBark() {
         String expectedString = "woof";
         assertEquals(expectedString, "woof");
-        System.out.println("WOOF!");
+        System.out.println("Barking test completed !");
     }
 }

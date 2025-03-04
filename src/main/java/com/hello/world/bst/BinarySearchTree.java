@@ -19,7 +19,7 @@ public interface BinarySearchTree<T extends BasicDataType> extends BinaryTree {
     BSTNode searchNode(T key);
 
 
-    BSTNode searchNode(BigInteger weight);
+    BSTNode searchNode(Integer weight);
 
 
     BSTNode searchNode(UUID uuid);
