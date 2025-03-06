@@ -142,6 +142,7 @@ public class LinkedList {
         secondList.append(5);
         secondList.append(6);
         secondList.append(7);
+        secondList.append(23);
 
         secondList.printList();
 
