@@ -1,30 +1,26 @@
 package com.hello.world;
 
 public class LinkedList {
-    private Node head;
-    private Node tail;
+    private ListNode head;
+    private ListNode tail;
     private int length;
 
     public LinkedList(int value) {
-        Node node = new Node(value);
+        ListNode node = new ListNode(value);
         this.head = node;
         this.tail = node;
         this.length = 1;
     }
 
-    class Node {
-        private int value;
-        private Node next;
-
-        public Node(int value) {
-            this.value = value;
-            this.next = null;
-        }
+    public LinkedList() {
+        this.head = null;
+        this.tail = null;
+        this.length = 0;
     }
 
 
     public void append(int value) {
-        Node newNode = new Node(value);
+        ListNode newNode = new ListNode(value);
 
         if(this.length == 0) {
             this.head = newNode;
@@ -39,7 +35,7 @@ public class LinkedList {
 
     public void printList() {
 
-        Node temp = head;
+        ListNode temp = head;
 
         while(temp != null) {
             System.out.print("{"+temp.value+"}->");
@@ -48,12 +44,12 @@ public class LinkedList {
         System.out.println("null");
     }
 
-    public Node removeLast() {
+    public ListNode removeLast() {
         if(length == 0 && head == null) {
             return null;
         }
-        Node temp = head;
-        Node pre = head;
+        ListNode temp = head;
+        ListNode pre = head;
 
         while(temp.next != null) {
             pre = temp;
@@ -72,7 +68,7 @@ public class LinkedList {
     }
 
     public void prepend(int value) {
-        Node newNode = new Node(value);
+        ListNode newNode = new ListNode(value);
         if(length == 0 || head == null) {
             head = newNode;
             tail = newNode;
@@ -84,12 +80,12 @@ public class LinkedList {
         length++;
     }
 
-    public Node getHead() {
+    public ListNode getHead() {
         System.out.println("Head:" + head.value);
         return head;
     }
 
-    public Node getTail() {
+    public ListNode getTail() {
         System.out.println("Tail:" + tail.next);
         return tail;
     }
@@ -100,12 +96,12 @@ public class LinkedList {
     }
 
     public void reverse() {
-        Node temp = head;
+        ListNode temp = head;
         head = tail;
         tail = temp;
 
-        Node after = temp.next;
-        Node before = null;
+        ListNode after = temp.next;
+        ListNode before = null;
 
         for(int i = 0; i < length; i++) {
             after = temp.next;
