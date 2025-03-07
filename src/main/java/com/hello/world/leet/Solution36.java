@@ -2,6 +2,7 @@ package com.hello.world.leet;
 
 public class Solution36 {
 
+    // Solution is O(N^2)
     public boolean isValidSudoku(char[][] board) {
         // check corner case, matrix should be 9x9, index start by 0
         if (board.length != 9) return false;
